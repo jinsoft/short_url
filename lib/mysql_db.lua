@@ -33,10 +33,8 @@ function DB:exec(sql)
 
   ngx.log(ngx.INFO, "connected to mysql. reused_times:", times)
 
-  ngx.say("sql", sql)
   local res, _, errcode, sqlstate = db:query(sql)
   if not res then
-      ngx.say("bad result: ", err, ": ", errcode, ": ", sqlstate, ".")
       ngx.log(ngx.ERR, "bad result: ", err, ": ", errcode, ": ", sqlstate, ".")
   end
 
